@@ -1,0 +1,5 @@
+Symlinking /home/wbzhang/catkin_optflow/devel/share/optflow_obs/cmake/optflow_obsConfig-version.cmake
+Symlinking /home/wbzhang/catkin_optflow/devel/share/optflow_obs/cmake/optflow_obsConfig.cmake
+Symlinking /home/wbzhang/catkin_optflow/devel/lib/liboptflowLib.so
+Symlinking /home/wbzhang/catkin_optflow/devel/lib/pkgconfig/optflow_obs.pc
+Symlinking /home/wbzhang/catkin_optflow/devel/lib/optflow_obs/classTest_node

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/wbzhang/catkin_optflow/devel/.private/showpath/setup.sh

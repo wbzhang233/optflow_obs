@@ -1,0 +1,12 @@
+[31m[1mCMake Error[0m at /home/wbzhang/catkin_optflow/src/optflow_obs/CMakeLists.txt:17 (find_package):
+  Could not find a configuration file for package "OpenCV" that is compatible
+  with requested version "4.2".
+
+  The following configuration files were considered but not accepted:
+
+    /usr/local/lib/cmake/opencv4/OpenCVConfig.cmake, version: 4.1.0
+    /usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake, version: 4.1.1
+
+
+
+make: *** [cmake_check_build_system] Error 1

@@ -1,0 +1,1 @@
+/home/wbzhang/catkin_optflow/devel/.private/optflow_obs/share/optflow_obs/cmake/optflow_obsConfig-version.cmake

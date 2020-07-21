@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/wbzhang/catkin_optflow/devel/.private/optflow_obs/setup.sh

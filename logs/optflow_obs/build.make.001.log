@@ -1,0 +1,6 @@
+[ 40%] Built target optflowLib
+make[2]: *** 没有规则可制作目标“/usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0”，由“/home/wbzhang/catkin_optflow/devel/.private/optflow_obs/lib/optflow_obs/classTest_node” 需求。 停止。
+CMakeFiles/Makefile2:840: recipe for target 'CMakeFiles/classTest_node.dir/all' failed
+make[1]: *** [CMakeFiles/classTest_node.dir/all] Error 2
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2

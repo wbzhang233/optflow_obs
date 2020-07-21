@@ -1,0 +1,6 @@
+Symlinking /home/wbzhang/catkin_optflow/devel/share/showpath/cmake/showpathConfig-version.cmake
+Symlinking /home/wbzhang/catkin_optflow/devel/share/showpath/cmake/showpathConfig.cmake
+Symlinking /home/wbzhang/catkin_optflow/devel/lib/showpath/showvis_node
+Symlinking /home/wbzhang/catkin_optflow/devel/lib/showpath/marker_node
+Symlinking /home/wbzhang/catkin_optflow/devel/lib/showpath/showpath_node
+Symlinking /home/wbzhang/catkin_optflow/devel/lib/pkgconfig/showpath.pc
