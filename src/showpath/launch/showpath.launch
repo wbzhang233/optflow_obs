@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- PX4_Gazebo 
+    <arg name="x" default="-5"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0"/>
+    <arg name="R" default="0"/>
+    <arg name="P" default="0"/>
+    <arg name="Y" default="0"/>
+    <arg name="world" default="$(find avoidance)/sim/worlds/obs_env_boxes.world"/>
+    <include file="$(find px4)/launch/iris_posix_sitl.launch">
+        <arg name="x" value="$(arg x)"/>
+        <arg name="y" value="$(arg y)"/>
+        <arg name="z" value="$(arg z)"/>
+        <arg name="R" value="$(arg R)"/>
+        <arg name="P" value="$(arg P)"/>
+        <arg name="Y" value="$(arg Y)"/>
+        <arg name="world" value="$(arg world)"/>
+        <arg name="gui" value="$(arg gui)"/>
+    </include>-->
+
+    <!-- RViz 
+    <node pkg="rviz" type="rviz" output="screen" name="rviz" respawn="true" args=""/>-->
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find showpath)/config/showpath.rviz" required="true" />
+
+    <!-- showpath_node 
+    <node pkg="showpath" type="showpath_node" name="showpath_node" />-->
+
+    <!-- showvis_node     -->
+    <node pkg="showpath" type="showvis_node" name="showvis_node" />
+
+    <!-- mission_play_node     -->
+        <node pkg="rosbag" type="play" name="rosbag" args="-d 2 /home/wbzhang/桌面/论文实验/录制无避障任务包/mission.bag"><remap from="/mavros/local_position/pose" to="/px4/mission_pose"/></node>
+
+
+
+    <!-- optflow_obs_node 
+    <node pkg="optflow_obs" type="classTest_node" name="classTest_node" />-->
+
+</launch>
+
+

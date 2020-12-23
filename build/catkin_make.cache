@@ -1,0 +1,2 @@
+optflow_obs:showpath
+-DCATKIN_DEVEL_PREFIX=/home/wbzhang/catkin_optflow/devel -DCMAKE_INSTALL_PREFIX=/home/wbzhang/catkin_optflow/install -G Unix Makefiles

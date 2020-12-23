@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: optflow_obs
+Description: Description of optflow_obs
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
