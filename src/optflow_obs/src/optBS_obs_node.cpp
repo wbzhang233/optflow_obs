@@ -18,11 +18,16 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/TwistStamped.h>
 
+#define ROS_RATE 20
+#define MAX_VEL_MAG 2.0 // [m/s]
+
+// 订阅当前状态回调函数
 mavros_msgs::State current_state;
 void state_cb(const mavros_msgs::State::ConstPtr& msg){
     current_state = *msg;
 }
 
+// 是否是速度控制
 bool velControl = false;
 void isVelControl(const geometry_msgs::Twist::ConstPtr& msg){
     if(msg== nullptr){
@@ -34,6 +39,16 @@ void isVelControl(const geometry_msgs::Twist::ConstPtr& msg){
         velControl = false;
     }
 }
+
+// TODO:
+// 发送解锁以及切换到offboard模式的函数
+// void armAndOffboardMode(void *)
+// {
+// }
+
+// TODO:发布速度控制消息
+geometry_msgs::TwistStamped cmd_vel;
+int count = 0;
 
 int main(int argc, char **argv)
 {
@@ -53,11 +68,11 @@ int main(int argc, char **argv)
 
 //    ros::Publisher pub_thrust = nh.advertise<mavros_msgs::Thrust>("mavros/setpoint_attitude/thrust", 30);
 //    ros::Publisher pub_attitude = nh.advertise<geometry_msgs::PoseStamped>("mavros/setpoint_attitude/attitude", 30);
-//    ros::Publisher pub_vel = nh.advertise<geometry_msgs::TwistStamped>("mavros/setpoint_attitude/cmd_vel", 30);
+   ros::Publisher pub_vel = nh.advertise<geometry_msgs::TwistStamped>("mavros/setpoint_attitude/cmd_vel", 30);
 
 
     //the setpoint publishing rate MUST be faster than 2Hz
-    ros::Rate rate(20.0);
+    ros::Rate rate(ROS_RATE);
 
     // wait for FCU connection
     while(ros::ok() && !current_state.connected){
@@ -109,7 +124,16 @@ int main(int argc, char **argv)
 
     ros::Time last_request = ros::Time::now();
 
+    cmd_vel.header.frame_id = "base_link";
+    cmd_vel.header.stamp = ros::Time::now();
+    cmd_vel.header.seq = count;
+    cmd_vel.twist.linear.x = 1.0;
+    cmd_vel.twist.linear.y = 1.0;
+    cmd_vel.twist.linear.z = 0.0;
+
     while(ros::ok()){
+        
+        // 请求解锁以及切换到offboard模式
         if( current_state.mode != "OFFBOARD" &&
             (ros::Time::now() - last_request > ros::Duration(5.0))){
             if( set_mode_client.call(offb_set_mode) &&
@@ -130,10 +154,11 @@ int main(int argc, char **argv)
 
         if(!velControl){
             local_pos_pub.publish(pose);
+        }else{
+            // pub_thrust.publish(cmd_thrust);
+            // pub_attitude.publish(cmd_attitude);
+            pub_vel.publish(cmd_vel);
         }
-//        pub_thrust.publish(cmd_thrust);
-//        pub_attitude.publish(cmd_attitude);
-//        pub_vel.publish(cmd_att_vel);
 
         ros::spinOnce();
         rate.sleep();

@@ -43,7 +43,8 @@ class opflowAvoidanceClass
 {
 public:
     opflowAvoidanceClass(ros::NodeHandle &nh);
-//    opflowAvoidanceClass(ros::NodeHandle &nh,int _method):method(_method){};
+    // opflowAvoidanceClass(ros::NodeHandle &nh,int _method):method(_method){};
+
     ~opflowAvoidanceClass();
     void init();
     void state_cb(const mavros_msgs::State::ConstPtr& msg);

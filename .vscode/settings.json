@@ -2,5 +2,17 @@
     "python.autoComplete.extraPaths": [
         "/opt/ros/melodic/lib/python2.7/dist-packages"
     ],
-    "cmake.sourceDirectory": "${workspaceFolder}/src"
+    "cmake.sourceDirectory": "${workspaceFolder}/src",
+    "files.associations": {
+        "iosfwd": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "algorithm": "cpp",
+        "ostream": "cpp",
+        "cmath": "cpp",
+        "dense": "cpp",
+        "geometry": "cpp"
+    }
 }
